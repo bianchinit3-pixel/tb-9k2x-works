@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tiziano Bianchini — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --avorio:#FBF9F4;
+    --ardesia:#233D4D;
+    --teal:#2A7F76;
+    --menta:#C9DCCB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--avorio);
+    color:var(--ardesia);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ---------- HEADER ---------- */
+  header{
+    background:var(--ardesia);
+    color:var(--avorio);
+    padding:56px 24px 64px;
+    text-align:center;
+  }
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:64px;height:64px;
+    border:2px solid var(--menta);
+    border-radius:14px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    letter-spacing:1px;
+    color:var(--menta);
+    margin-bottom:22px;
+  }
+  header h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:34px;
+    letter-spacing:-0.5px;
+  }
+  header .role{
+    color:var(--menta);
+    font-size:17px;
+    font-weight:500;
+    margin-top:8px;
+  }
+  header .intro{
+    max-width:620px;
+    margin:20px auto 0;
+    font-size:15px;
+    opacity:.85;
+  }
+  header .links{
+    margin-top:26px;
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  header .links a{
+    color:var(--avorio);
+    text-decoration:none;
+    border:1px solid rgba(251,249,244,.35);
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:500;
+    transition:background .15s,border-color .15s;
+  }
+  header .links a:hover{
+    background:var(--teal);
+    border-color:var(--teal);
+  }
+  .private-note{
+    margin-top:22px;
+    font-size:12.5px;
+    color:var(--menta);
+    opacity:.9;
+  }
+  /* ---------- FILTRI ---------- */
+  .filters{
+    max-width:1100px;
+    margin:32px auto 8px;
+    padding:0 24px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .filters button{
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--ardesia);
+    background:transparent;
+    border:1px solid var(--teal);
+    padding:7px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  .filters button:hover{background:var(--menta);}
+  .filters button.active{
+    background:var(--teal);
+    color:var(--avorio);
+    border-color:var(--teal);
+  }
+  /* ---------- GRIGLIA CARD ---------- */
+  .grid{
+    max-width:1100px;
+    margin:24px auto 64px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:22px;
+  }
+  .card{
+    background:#fff;
+    border:1px solid rgba(35,61,77,.10);
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(35,61,77,.12);
+  }
+  .thumb{
+    height:150px;
+    background:var(--menta);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  /* miniatura opzionale: se la card ha data-thumb, viene usata come sfondo */
+  .thumb.has-img{background-size:cover;background-position:center;}
+  .badge{
+    position:absolute;
+    top:12px;left:12px;
+    background:var(--ardesia);
+    color:var(--avorio);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.4px;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:999px;
+  }
+  .thumb .ph{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:40px;
+    color:var(--ardesia);
+    opacity:.55;
+  }
+  .card-body{
+    padding:18px 18px 20px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .card-body h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:17px;
+    margin-bottom:8px;
+    color:var(--ardesia);
+  }
+  .card-body p{
+    font-size:14px;
+    color:#42606f;
+    flex:1;
+  }
+  .card-body a.open{
+    margin-top:16px;
+    align-self:flex-start;
+    text-decoration:none;
+    background:var(--teal);
+    color:var(--avorio);
+    font-size:13.5px;
+    font-weight:600;
+    padding:9px 18px;
+    border-radius:999px;
+    transition:opacity .15s;
+  }
+  .card-body a.open:hover{opacity:.88;}
+  /* ---------- STATO (caricamento / vuoto) ---------- */
+  .stato{
+    max-width:760px;
+    margin:32px auto 64px;
+    padding:0 24px;
+    text-align:center;
+    color:#6b8794;
+    font-size:14.5px;
+  }
+  .stato strong{color:var(--ardesia);}
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:28px 24px 48px;
+    font-size:12.5px;
+    color:#6b8794;
+  }
+  footer .mono{
+    display:inline-flex;
+    width:34px;height:34px;
+    border:1.5px solid var(--teal);
+    border-radius:9px;
+    align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    color:var(--teal);
+    margin-bottom:12px;
+  }
+  @media (max-width:520px){
+    header h1{font-size:27px;}
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!--  HEADER                                                        -->
+  <!-- ============================================================= -->
+  <header>
+    <div class="logo">TB</div>
+    <h1>Tiziano Bianchini</h1>
+    <div class="role">Progettista impiantistico MEP</div>
+    <p class="intro">
+      Una selezione di lavori, progetti e automazioni che non pubblico altrove.
+      Estratti di relazioni, video di sistemi che ho realizzato, programmi e strumenti AI a supporto della progettazione.
+    </p>
+    <div class="links">
+      <a href="https://linkedin.com/in/tiziano-bianchini-mep" target="_blank" rel="noopener">Profilo LinkedIn</a>
+      <a href="mailto:tiziano.bianchini@vegasrl.com">Contattami</a>
+    </div>
+    <div class="private-note">Pagina privata · condivisa solo tramite link</div>
+  </header>
+
+  <!-- ============================================================= -->
+  <!--  FILTRI (generati in automatico dalle categorie dei lavori)    -->
+  <!-- ============================================================= -->
+  <div class="filters" id="filters"></div>
+
+  <!-- ============================================================= -->
+  <!--  GRIGLIA — popolata leggendo il file works.json                -->
+  <!-- ============================================================= -->
+  <div class="grid" id="grid"></div>
+  <div class="stato" id="stato"></div>
+
+  <footer>
+    <div class="mono">TB</div><br>
+    Tiziano Bianchini · Progettista impiantistico — Portfolio privato
+  </footer>
+
+<!-- ================================================================= -->
+<!--  MOTORE DELLA PAGINA — non serve toccarlo.                         -->
+<!--                                                                    -->
+<!--  I LAVORI NON STANNO PIÙ QUI DENTRO: stanno nel file works.json    -->
+<!--  (nella stessa cartella). Per aggiungere/modificare un lavoro      -->
+<!--  apri SOLO works.json. Questo file index.html non si tocca mai.    -->
+<!-- ================================================================= -->
+<script>
+(function(){
+  const grid = document.getElementById('grid');
+  const filtersBox = document.getElementById('filters');
+  const stato = document.getElementById('stato');
+
+  // Lavori di esempio "di scorta": usati solo se works.json non si carica
+  // (es. quando apri la pagina con doppio-click dal PC, non online).
+  // Quando la pagina è online su GitHub, vince sempre works.json.
+  const FALLBACK = [
+    { titolo:"Automazione monitoraggio offerte", categoria:"AI",
+      descrizione:"Workflow n8n che monitora le offerte di lavoro e mi avvisa su WhatsApp. Esempio di automazione del mio workflow con AI.",
+      link:"#", thumb:"" },
+    { titolo:"Estratto relazione tecnica — impianti galleria", categoria:"Relazioni",
+      descrizione:"Estratto di una relazione di progetto per impianti elettrici e illuminotecnici di galleria. Dati sensibili rimossi.",
+      link:"#", thumb:"" },
+    { titolo:"Progetto MEP reparto ospedaliero", categoria:"Progetti",
+      descrizione:"Tavole e schemi di un progetto di impianti meccanici e gas medicali. Anteprima a bassa risoluzione.",
+      link:"#", thumb:"" },
+    { titolo:"Video — sistema realizzato in cantiere", categoria:"Video",
+      descrizione:"Breve video di un impianto realizzato e messo in funzione. Mostra il risultato pratico del progetto.",
+      link:"#", thumb:"" }
+  ];
+
+  // Prova a leggere works.json. Se non riesce (pagina aperta in locale o file
+  // assente), usa i lavori di scorta qui sopra, così la pagina non è mai vuota.
+  fetch('works.json', {cache:'no-store'})
+    .then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(data => start(Array.isArray(data) ? data : (data.lavori || [])))
+    .catch(() => start(FALLBACK, true));
+
+  function start(lavori, isFallback){
+    if(!lavori || lavori.length === 0){
+      filtersBox.style.display = 'none';
+      stato.innerHTML = '<strong>Il portfolio è pronto, ma non c\'è ancora nessun lavoro.</strong><br>' +
+        'Apri il file <strong>works.json</strong> e aggiungi le tue voci.';
+      return;
+    }
+
+    // categorie uniche, nell'ordine in cui appaiono
+    const cats = [];
+    lavori.forEach(l=>{ if(l.categoria && !cats.includes(l.categoria)) cats.push(l.categoria); });
+
+    // pulsanti filtro
+    filtersBox.innerHTML = '';
+    const allBtn = makeBtn('Tutti', true);
+    allBtn.onclick = ()=>render('Tutti');
+    filtersBox.appendChild(allBtn);
+    cats.forEach(c=>{
+      const b = makeBtn(c, false);
+      b.onclick = ()=>render(c);
+      filtersBox.appendChild(b);
+    });
+
+    function render(cat){
+      [...filtersBox.children].forEach(b=>{
+        b.classList.toggle('active', b.dataset.cat===cat);
+      });
+      grid.innerHTML = '';
+      lavori.filter(l=> cat==='Tutti' || l.categoria===cat).forEach(l=>{
+        grid.appendChild(card(l));
+      });
+    }
+
+    render('Tutti');
+  }
+
+  function makeBtn(label, active){
+    const b = document.createElement('button');
+    b.textContent = label;
+    b.dataset.cat = label;
+    if(active) b.classList.add('active');
+    return b;
+  }
+
+  function card(l){
+    const c = document.createElement('div');
+    c.className = 'card';
+
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    if(l.thumb){
+      thumb.classList.add('has-img');
+      thumb.style.backgroundImage = `url('${l.thumb}')`;
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.textContent = (l.categoria||'·').charAt(0).toUpperCase();
+      thumb.appendChild(ph);
+    }
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = l.categoria || '';
+    thumb.appendChild(badge);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    const h = document.createElement('h3'); h.textContent = l.titolo || '';
+    const p = document.createElement('p'); p.textContent = l.descrizione || '';
+    const a = document.createElement('a');
+    a.className = 'open'; a.href = l.link || '#';
+    a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = 'Apri →';
+
+    body.appendChild(h); body.appendChild(p); body.appendChild(a);
+    c.appendChild(thumb); c.appendChild(body);
+    return c;
+  }
+})();
+</script>
+
+</body>
+</html>
