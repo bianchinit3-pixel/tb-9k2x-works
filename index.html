@@ -109,10 +109,10 @@
     font-size:15px;
     opacity:.85;
   }
-  /* lista attivita "Cosa faccio" */
+  /* sezione "Competenze e servizi" */
   .attivita{
-    max-width:760px;
-    margin:26px auto 0;
+    max-width:820px;
+    margin:40px auto 0;
     text-align:left;
   }
   .attivita .titolo{
@@ -122,7 +122,7 @@
     letter-spacing:.6px;
     text-transform:uppercase;
     color:var(--menta);
-    margin-bottom:16px;
+    margin-bottom:22px;
     text-align:center;
   }
   .attivita ul{
@@ -130,32 +130,24 @@
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:10px;
+    gap:13px;
   }
-  /* ogni attivita e un ovale (chip) che cambia colore all'hover */
+  /* ogni competenza e un ovale con i colori dei vecchi pulsanti:
+     bordo avorio tenue + testo avorio a riposo, riempimento teal all'hover */
   .attivita li{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
     font-size:13.5px;
     font-weight:500;
-    color:var(--menta);
-    background:rgba(201,220,203,.10);
-    border:1px solid rgba(201,220,203,.45);
-    padding:8px 16px;
+    color:var(--avorio);
+    background:transparent;
+    border:1px solid rgba(251,249,244,.35);
+    padding:9px 18px;
     border-radius:999px;
     cursor:default;
-    transition:background .18s ease,color .18s ease,border-color .18s ease;
+    transition:background .18s ease,border-color .18s ease;
   }
   .attivita li:hover{
-    background:var(--menta);
-    color:var(--ardesia);
-    border-color:var(--menta);
-  }
-  .attivita li svg{
-    width:14px;height:14px;flex:none;
-    stroke:currentColor;fill:none;stroke-width:1.8;
-    stroke-linecap:round;stroke-linejoin:round;
+    background:var(--teal);
+    border-color:var(--teal);
   }
   .private-note{
     margin-top:32px;
@@ -360,14 +352,14 @@
     <div class="attivita">
       <div class="titolo">Competenze e servizi</div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Progettazione impianti meccanici ed elettrici</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Impianti per gallerie e sottopassi</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Progettazione preliminare, esecutiva, costruttiva e as-built</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Disegno CAD e BIM</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Supporto tecnico a imprese e general contractor</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Construction Management e direzione di cantiere</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Computi metrici, contabilita lavori e budget</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Automazione del workflow con AI (Claude e n8n)</li>
+        <li>Progettazione impianti meccanici ed elettrici</li>
+        <li>Impianti per gallerie e sottopassi</li>
+        <li>Progettazione preliminare, esecutiva, costruttiva e as-built</li>
+        <li>Disegno CAD e BIM</li>
+        <li>Supporto tecnico a imprese e general contractor</li>
+        <li>Construction Management e direzione di cantiere</li>
+        <li>Computi metrici, contabilita lavori e budget</li>
+        <li>Automazione del workflow con AI (Claude e n8n)</li>
       </ul>
     </div>
 
