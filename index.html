@@ -23,6 +23,47 @@
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
+
+  /* ===== STILE LINK RIUTILIZZABILE (.link-mep) =====
+     Testo color menta, icona a sinistra, sottolineatura animata all'hover.
+     Usato nel footer e nella lista "Cosa faccio". Per riusarlo altrove:
+     <a class="link-mep">...</a>  oppure  <span class="link-mep">...</span> */
+  .link-mep{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--menta);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    line-height:1.4;
+    position:relative;
+  }
+  .link-mep svg{
+    width:16px;height:16px;
+    flex:none;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .link-mep .testo{
+    position:relative;
+  }
+  /* sottolineatura che cresce da sinistra all'hover */
+  .link-mep .testo::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-3px;
+    width:100%;height:1.5px;
+    background:currentColor;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .18s ease;
+  }
+  a.link-mep:hover .testo::after{transform:scaleX(1);}
+
   /* ---------- HEADER ---------- */
   header{
     background:var(--ardesia);
@@ -30,7 +71,6 @@
     padding:56px 24px 56px;
     text-align:center;
   }
-  /* foto profilo: cerchio segnaposto grigio finche non si carica una foto vera */
   .avatar{
     display:inline-flex;
     align-items:center;
@@ -69,10 +109,10 @@
     font-size:15px;
     opacity:.85;
   }
-  /* lista attivita sotto l'intro */
+  /* lista attivita "Cosa faccio" */
   .attivita{
     max-width:760px;
-    margin:24px auto 0;
+    margin:26px auto 0;
     text-align:left;
   }
   .attivita .titolo{
@@ -82,31 +122,43 @@
     letter-spacing:.6px;
     text-transform:uppercase;
     color:var(--menta);
-    margin-bottom:14px;
+    margin-bottom:16px;
     text-align:center;
   }
   .attivita ul{
     list-style:none;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px 28px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
   }
+  /* ogni attivita e un ovale (chip) che cambia colore all'hover */
   .attivita li{
-    position:relative;
-    padding-left:20px;
-    font-size:14px;
-    opacity:.92;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--menta);
+    background:rgba(201,220,203,.10);
+    border:1px solid rgba(201,220,203,.45);
+    padding:8px 16px;
+    border-radius:999px;
+    cursor:default;
+    transition:background .18s ease,color .18s ease,border-color .18s ease;
   }
-  .attivita li::before{
-    content:"";
-    position:absolute;
-    left:0;top:8px;
-    width:7px;height:7px;
-    border-radius:50%;
+  .attivita li:hover{
     background:var(--menta);
+    color:var(--ardesia);
+    border-color:var(--menta);
+  }
+  .attivita li svg{
+    width:14px;height:14px;flex:none;
+    stroke:currentColor;fill:none;stroke-width:1.8;
+    stroke-linecap:round;stroke-linejoin:round;
   }
   .private-note{
-    margin-top:30px;
+    margin-top:32px;
     font-size:12.5px;
     color:var(--menta);
     opacity:.9;
@@ -220,7 +272,7 @@
     transition:opacity .15s;
   }
   .card-body a.open:hover{opacity:.88;}
-  /* ---------- STATO (caricamento / vuoto) ---------- */
+  /* ---------- STATO ---------- */
   .stato{
     max-width:760px;
     margin:32px auto 64px;
@@ -235,42 +287,50 @@
     background:var(--ardesia);
     color:var(--avorio);
     text-align:center;
-    padding:48px 24px 44px;
+    padding:46px 24px 42px;
     margin-top:32px;
   }
-  footer .foot-links{
+  .foot-titolo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:500;
+    font-size:13px;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    color:var(--menta);
+    opacity:.8;
+    margin-bottom:18px;
+  }
+  .foot-links{
     display:flex;
-    gap:14px;
+    gap:32px;
     justify-content:center;
     flex-wrap:wrap;
-    margin-bottom:24px;
+    margin-bottom:22px;
   }
-  footer .foot-links a{
-    color:var(--avorio);
-    text-decoration:none;
-    border:1px solid rgba(251,249,244,.35);
-    padding:9px 18px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:500;
-    transition:background .15s,border-color .15s;
+  /* separatore sottile tra i due gruppi del footer */
+  .foot-sep{
+    width:46px;height:1px;
+    background:rgba(201,220,203,.30);
+    margin:0 auto 20px;
   }
-  footer .foot-links a:hover{
-    background:var(--teal);
-    border-color:var(--teal);
+  .foot-contatti{
+    display:flex;
+    gap:28px;
+    justify-content:center;
+    flex-wrap:wrap;
   }
-  footer .contatti{
-    font-size:14px;
-    color:var(--menta);
-    line-height:1.9;
-  }
-  footer .contatti a{
+  .foot-contatti a{
     color:var(--menta);
     text-decoration:none;
+    font-size:13.5px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
   }
-  footer .contatti a:hover{text-decoration:underline;}
-  footer .firma{
-    margin-top:22px;
+  .foot-contatti a:hover{text-decoration:underline;}
+  .foot-contatti svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .firma{
+    margin-top:26px;
     font-size:12px;
     color:#8fa9b4;
   }
@@ -298,16 +358,16 @@
     </p>
 
     <div class="attivita">
-      <div class="titolo">Cosa faccio</div>
+      <div class="titolo">Competenze e servizi</div>
       <ul>
-        <li>Progettazione impianti meccanici ed elettrici</li>
-        <li>Impianti per gallerie e sottopassi</li>
-        <li>Progettazione preliminare, esecutiva, costruttiva e as-built</li>
-        <li>Disegno CAD e BIM</li>
-        <li>Supporto tecnico a imprese e general contractor</li>
-        <li>Construction Management e direzione di cantiere</li>
-        <li>Computi metrici, contabilita lavori e budget</li>
-        <li>Automazione del workflow con AI (Claude e n8n)</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Progettazione impianti meccanici ed elettrici</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Impianti per gallerie e sottopassi</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Progettazione preliminare, esecutiva, costruttiva e as-built</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Disegno CAD e BIM</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Supporto tecnico a imprese e general contractor</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Construction Management e direzione di cantiere</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Computi metrici, contabilita lavori e budget</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/></svg>Automazione del workflow con AI (Claude e n8n)</li>
       </ul>
     </div>
 
@@ -322,14 +382,31 @@
   <div class="stato" id="stato"></div>
 
   <footer>
+    <div class="foot-titolo">Contatti</div>
     <div class="foot-links">
-      <a href="https://linkedin.com/in/tiziano-bianchini-mep" target="_blank" rel="noopener">Profilo LinkedIn</a>
-      <a href="mailto:tiziano.bianchini@vegasrl.com">Contattami</a>
+      <a class="link-mep" href="https://linkedin.com/in/tiziano-bianchini-mep" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10.5" x2="7.5" y2="17"/><circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/><path d="M11 17v-3.5a2.5 2.5 0 0 1 5 0V17"/><line x1="11" y1="10.5" x2="11" y2="17"/></svg>
+        <span class="testo">Profilo LinkedIn</span>
+      </a>
+      <a class="link-mep" href="mailto:tiziano.bianchini@vegasrl.com">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <span class="testo">Contattami</span>
+      </a>
     </div>
-    <div class="contatti">
-      <a href="mailto:tiziano.bianchini@vegasrl.com">tiziano.bianchini@vegasrl.com</a><br>
-      <a href="tel:+393472466274">+39 347 2466274</a>
+
+    <div class="foot-sep"></div>
+
+    <div class="foot-contatti">
+      <a href="mailto:tiziano.bianchini@vegasrl.com">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        tiziano.bianchini@vegasrl.com
+      </a>
+      <a href="tel:+393472466274">
+        <svg viewBox="0 0 24 24"><path d="M5 4h3l2 5-2 1c1 2 2 3 4 4l1-2 5 2v3a1 1 0 0 1-1 1A14 14 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
+        +39 347 2466274
+      </a>
     </div>
+
     <div class="firma">Tiziano Bianchini &middot; Progettista MEP - Portfolio privato</div>
   </footer>
 
@@ -345,9 +422,6 @@
   var filtersBox = document.getElementById('filters');
   var stato = document.getElementById('stato');
 
-  // Lavori di scorta: usati solo se works.json non si carica
-  // (es. pagina aperta con doppio-click dal PC, non online).
-  // Online su GitHub vince sempre works.json.
   var FALLBACK = [
     { titolo:"Impianti elettrici e illuminotecnici di galleria", categoria:"Progetti",
       descrizione:"Estratto di progetto per impianti elettrici, illuminazione e sicurezza di una galleria stradale.",
