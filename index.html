@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Tiziano Bianchini — Portfolio</title>
+<title>Tiziano Bianchini - Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -27,22 +27,29 @@
   header{
     background:var(--ardesia);
     color:var(--avorio);
-    padding:56px 24px 64px;
+    padding:56px 24px 56px;
     text-align:center;
   }
-  .logo{
+  /* foto profilo: cerchio segnaposto grigio finche non si carica una foto vera */
+  .avatar{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    width:64px;height:64px;
-    border:2px solid var(--menta);
-    border-radius:14px;
+    width:104px;height:104px;
+    border-radius:50%;
+    background:#d4d4d4;
+    border:3px solid var(--menta);
+    background-size:cover;
+    background-position:center;
+    margin-bottom:22px;
+    overflow:hidden;
+  }
+  .avatar .ph-foto{
     font-family:'Space Grotesk',sans-serif;
     font-weight:700;
-    font-size:26px;
-    letter-spacing:1px;
-    color:var(--menta);
-    margin-bottom:22px;
+    font-size:13px;
+    letter-spacing:1.5px;
+    color:#6b6b6b;
   }
   header h1{
     font-family:'Space Grotesk',sans-serif;
@@ -52,39 +59,54 @@
   }
   header .role{
     color:var(--menta);
-    font-size:17px;
+    font-size:16px;
     font-weight:500;
     margin-top:8px;
   }
   header .intro{
-    max-width:620px;
+    max-width:640px;
     margin:20px auto 0;
     font-size:15px;
     opacity:.85;
   }
-  header .links{
-    margin-top:26px;
-    display:flex;
-    gap:14px;
-    justify-content:center;
-    flex-wrap:wrap;
+  /* lista attivita sotto l'intro */
+  .attivita{
+    max-width:760px;
+    margin:24px auto 0;
+    text-align:left;
   }
-  header .links a{
-    color:var(--avorio);
-    text-decoration:none;
-    border:1px solid rgba(251,249,244,.35);
-    padding:8px 16px;
-    border-radius:999px;
-    font-size:14px;
+  .attivita .titolo{
+    font-family:'Space Grotesk',sans-serif;
     font-weight:500;
-    transition:background .15s,border-color .15s;
+    font-size:13px;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    color:var(--menta);
+    margin-bottom:14px;
+    text-align:center;
   }
-  header .links a:hover{
-    background:var(--teal);
-    border-color:var(--teal);
+  .attivita ul{
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px 28px;
+  }
+  .attivita li{
+    position:relative;
+    padding-left:20px;
+    font-size:14px;
+    opacity:.92;
+  }
+  .attivita li::before{
+    content:"";
+    position:absolute;
+    left:0;top:8px;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--menta);
   }
   .private-note{
-    margin-top:22px;
+    margin-top:30px;
     font-size:12.5px;
     color:var(--menta);
     opacity:.9;
@@ -147,7 +169,6 @@
     justify-content:center;
     position:relative;
   }
-  /* miniatura opzionale: se la card ha data-thumb, viene usata come sfondo */
   .thumb.has-img{background-size:cover;background-position:center;}
   .badge{
     position:absolute;
@@ -211,131 +232,169 @@
   .stato strong{color:var(--ardesia);}
   /* ---------- FOOTER ---------- */
   footer{
+    background:var(--ardesia);
+    color:var(--avorio);
     text-align:center;
-    padding:28px 24px 48px;
-    font-size:12.5px;
-    color:#6b8794;
+    padding:48px 24px 44px;
+    margin-top:32px;
   }
-  footer .mono{
-    display:inline-flex;
-    width:34px;height:34px;
-    border:1.5px solid var(--teal);
-    border-radius:9px;
-    align-items:center;justify-content:center;
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    color:var(--teal);
-    margin-bottom:12px;
+  footer .foot-links{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:24px;
+  }
+  footer .foot-links a{
+    color:var(--avorio);
+    text-decoration:none;
+    border:1px solid rgba(251,249,244,.35);
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:500;
+    transition:background .15s,border-color .15s;
+  }
+  footer .foot-links a:hover{
+    background:var(--teal);
+    border-color:var(--teal);
+  }
+  footer .contatti{
+    font-size:14px;
+    color:var(--menta);
+    line-height:1.9;
+  }
+  footer .contatti a{
+    color:var(--menta);
+    text-decoration:none;
+  }
+  footer .contatti a:hover{text-decoration:underline;}
+  footer .firma{
+    margin-top:22px;
+    font-size:12px;
+    color:#8fa9b4;
   }
   @media (max-width:520px){
     header h1{font-size:27px;}
     .grid{grid-template-columns:1fr;}
+    .attivita ul{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
-  <!-- ============================================================= -->
-  <!--  HEADER                                                        -->
-  <!-- ============================================================= -->
   <header>
-    <div class="logo">TB</div>
+    <!-- Cerchio segnaposto per la foto profilo. Per metterci una foto vera:
+         togli lo <span> "FOTO" e aggiungi allo stile inline dell'avatar:
+         background-image:url('foto.jpg'); -->
+    <div class="avatar"><span class="ph-foto">FOTO</span></div>
     <h1>Tiziano Bianchini</h1>
-    <div class="role">Progettista impiantistico MEP</div>
+    <div class="role">Progettista MEP &middot; Supporto tecnico a imprese e general contractor</div>
     <p class="intro">
-      Una selezione di lavori, progetti e automazioni che non pubblico altrove.
-      Estratti di relazioni, video di sistemi che ho realizzato, programmi e strumenti AI a supporto della progettazione.
+      Progetto impianti meccanici ed elettrici per infrastrutture, gallerie e ospedali,
+      e affianco imprese e general contractor in cantiere e in ufficio.
+      Uso l'AI per accelerare il workflow. Qui raccolgo lavori, progetti e automazioni
+      che non pubblico altrove: estratti di relazioni, video di sistemi realizzati e strumenti a supporto della progettazione.
     </p>
-    <div class="links">
-      <a href="https://linkedin.com/in/tiziano-bianchini-mep" target="_blank" rel="noopener">Profilo LinkedIn</a>
-      <a href="mailto:tiziano.bianchini@vegasrl.com">Contattami</a>
+
+    <div class="attivita">
+      <div class="titolo">Cosa faccio</div>
+      <ul>
+        <li>Progettazione impianti meccanici ed elettrici</li>
+        <li>Impianti per gallerie e sottopassi</li>
+        <li>Progettazione preliminare, esecutiva, costruttiva e as-built</li>
+        <li>Disegno CAD e BIM</li>
+        <li>Supporto tecnico a imprese e general contractor</li>
+        <li>Construction Management e direzione di cantiere</li>
+        <li>Computi metrici, contabilita lavori e budget</li>
+        <li>Automazione del workflow con AI (Claude e n8n)</li>
+      </ul>
     </div>
-    <div class="private-note">Pagina privata · condivisa solo tramite link</div>
+
+    <div class="private-note">Pagina privata &middot; condivisa solo tramite link</div>
   </header>
 
-  <!-- ============================================================= -->
-  <!--  FILTRI (generati in automatico dalle categorie dei lavori)    -->
-  <!-- ============================================================= -->
+  <!-- FILTRI: generati in automatico dalle categorie dei lavori -->
   <div class="filters" id="filters"></div>
 
-  <!-- ============================================================= -->
-  <!--  GRIGLIA — popolata leggendo il file works.json                -->
-  <!-- ============================================================= -->
+  <!-- GRIGLIA: popolata leggendo il file works.json -->
   <div class="grid" id="grid"></div>
   <div class="stato" id="stato"></div>
 
   <footer>
-    <div class="mono">TB</div><br>
-    Tiziano Bianchini · Progettista impiantistico — Portfolio privato
+    <div class="foot-links">
+      <a href="https://linkedin.com/in/tiziano-bianchini-mep" target="_blank" rel="noopener">Profilo LinkedIn</a>
+      <a href="mailto:tiziano.bianchini@vegasrl.com">Contattami</a>
+    </div>
+    <div class="contatti">
+      <a href="mailto:tiziano.bianchini@vegasrl.com">tiziano.bianchini@vegasrl.com</a><br>
+      <a href="tel:+393472466274">+39 347 2466274</a>
+    </div>
+    <div class="firma">Tiziano Bianchini &middot; Progettista MEP - Portfolio privato</div>
   </footer>
 
 <!-- ================================================================= -->
-<!--  MOTORE DELLA PAGINA — non serve toccarlo.                         -->
-<!--                                                                    -->
-<!--  I LAVORI NON STANNO PIÙ QUI DENTRO: stanno nel file works.json    -->
-<!--  (nella stessa cartella). Per aggiungere/modificare un lavoro      -->
-<!--  apri SOLO works.json. Questo file index.html non si tocca mai.    -->
+<!--  MOTORE DELLA PAGINA - non serve toccarlo.                         -->
+<!--  I LAVORI NON STANNO QUI DENTRO: stanno nel file works.json        -->
+<!--  (stessa cartella). Per aggiungere/modificare un lavoro apri SOLO  -->
+<!--  works.json. Questo file index.html non si tocca mai.              -->
 <!-- ================================================================= -->
 <script>
 (function(){
-  const grid = document.getElementById('grid');
-  const filtersBox = document.getElementById('filters');
-  const stato = document.getElementById('stato');
+  var grid = document.getElementById('grid');
+  var filtersBox = document.getElementById('filters');
+  var stato = document.getElementById('stato');
 
-  // Lavori di esempio "di scorta": usati solo se works.json non si carica
-  // (es. quando apri la pagina con doppio-click dal PC, non online).
-  // Quando la pagina è online su GitHub, vince sempre works.json.
-  const FALLBACK = [
-    { titolo:"Automazione monitoraggio offerte", categoria:"AI",
-      descrizione:"Workflow n8n che monitora le offerte di lavoro e mi avvisa su WhatsApp. Esempio di automazione del mio workflow con AI.",
+  // Lavori di scorta: usati solo se works.json non si carica
+  // (es. pagina aperta con doppio-click dal PC, non online).
+  // Online su GitHub vince sempre works.json.
+  var FALLBACK = [
+    { titolo:"Impianti elettrici e illuminotecnici di galleria", categoria:"Progetti",
+      descrizione:"Estratto di progetto per impianti elettrici, illuminazione e sicurezza di una galleria stradale.",
       link:"#", thumb:"" },
-    { titolo:"Estratto relazione tecnica — impianti galleria", categoria:"Relazioni",
-      descrizione:"Estratto di una relazione di progetto per impianti elettrici e illuminotecnici di galleria. Dati sensibili rimossi.",
+    { titolo:"Impianti meccanici e gas medicali - reparto ospedaliero", categoria:"Progetti",
+      descrizione:"Tavole e schemi di climatizzazione, idrico-sanitario e gas medicali per un reparto.",
       link:"#", thumb:"" },
-    { titolo:"Progetto MEP reparto ospedaliero", categoria:"Progetti",
-      descrizione:"Tavole e schemi di un progetto di impianti meccanici e gas medicali. Anteprima a bassa risoluzione.",
+    { titolo:"Relazione tecnica impianti - stazione ferroviaria", categoria:"Relazioni",
+      descrizione:"Estratto di relazione di calcolo e descrittiva per gli impianti di una stazione.",
       link:"#", thumb:"" },
-    { titolo:"Video — sistema realizzato in cantiere", categoria:"Video",
-      descrizione:"Breve video di un impianto realizzato e messo in funzione. Mostra il risultato pratico del progetto.",
+    { titolo:"Automazione del workflow con AI", categoria:"AI",
+      descrizione:"Workflow n8n e Claude che automatizza attivita ripetitive a supporto della progettazione.",
       link:"#", thumb:"" }
   ];
 
-  // Prova a leggere works.json. Se non riesce (pagina aperta in locale o file
-  // assente), usa i lavori di scorta qui sopra, così la pagina non è mai vuota.
   fetch('works.json', {cache:'no-store'})
-    .then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
-    .then(data => start(Array.isArray(data) ? data : (data.lavori || [])))
-    .catch(() => start(FALLBACK, true));
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(data){ start(Array.isArray(data) ? data : (data.lavori || [])); })
+    .catch(function(){ start(FALLBACK, true); });
 
-  function start(lavori, isFallback){
+  function start(lavori){
     if(!lavori || lavori.length === 0){
       filtersBox.style.display = 'none';
-      stato.innerHTML = '<strong>Il portfolio è pronto, ma non c\'è ancora nessun lavoro.</strong><br>' +
+      stato.innerHTML = '<strong>Il portfolio e pronto, ma non c\'e ancora nessun lavoro.</strong><br>' +
         'Apri il file <strong>works.json</strong> e aggiungi le tue voci.';
       return;
     }
 
-    // categorie uniche, nell'ordine in cui appaiono
-    const cats = [];
-    lavori.forEach(l=>{ if(l.categoria && !cats.includes(l.categoria)) cats.push(l.categoria); });
+    var cats = [];
+    lavori.forEach(function(l){ if(l.categoria && cats.indexOf(l.categoria)===-1) cats.push(l.categoria); });
 
-    // pulsanti filtro
     filtersBox.innerHTML = '';
-    const allBtn = makeBtn('Tutti', true);
-    allBtn.onclick = ()=>render('Tutti');
+    var allBtn = makeBtn('Tutti', true);
+    allBtn.onclick = function(){ render('Tutti'); };
     filtersBox.appendChild(allBtn);
-    cats.forEach(c=>{
-      const b = makeBtn(c, false);
-      b.onclick = ()=>render(c);
+    cats.forEach(function(c){
+      var b = makeBtn(c, false);
+      b.onclick = function(){ render(c); };
       filtersBox.appendChild(b);
     });
 
     function render(cat){
-      [...filtersBox.children].forEach(b=>{
+      Array.prototype.forEach.call(filtersBox.children, function(b){
         b.classList.toggle('active', b.dataset.cat===cat);
       });
       grid.innerHTML = '';
-      lavori.filter(l=> cat==='Tutti' || l.categoria===cat).forEach(l=>{
+      lavori.filter(function(l){ return cat==='Tutti' || l.categoria===cat; }).forEach(function(l){
         grid.appendChild(card(l));
       });
     }
@@ -344,7 +403,7 @@
   }
 
   function makeBtn(label, active){
-    const b = document.createElement('button');
+    var b = document.createElement('button');
     b.textContent = label;
     b.dataset.cat = label;
     if(active) b.classList.add('active');
@@ -352,33 +411,33 @@
   }
 
   function card(l){
-    const c = document.createElement('div');
+    var c = document.createElement('div');
     c.className = 'card';
 
-    const thumb = document.createElement('div');
+    var thumb = document.createElement('div');
     thumb.className = 'thumb';
     if(l.thumb){
       thumb.classList.add('has-img');
-      thumb.style.backgroundImage = `url('${l.thumb}')`;
+      thumb.style.backgroundImage = "url('" + l.thumb + "')";
     } else {
-      const ph = document.createElement('div');
+      var ph = document.createElement('div');
       ph.className = 'ph';
-      ph.textContent = (l.categoria||'·').charAt(0).toUpperCase();
+      ph.textContent = (l.categoria||'.').charAt(0).toUpperCase();
       thumb.appendChild(ph);
     }
-    const badge = document.createElement('span');
+    var badge = document.createElement('span');
     badge.className = 'badge';
     badge.textContent = l.categoria || '';
     thumb.appendChild(badge);
 
-    const body = document.createElement('div');
+    var body = document.createElement('div');
     body.className = 'card-body';
-    const h = document.createElement('h3'); h.textContent = l.titolo || '';
-    const p = document.createElement('p'); p.textContent = l.descrizione || '';
-    const a = document.createElement('a');
+    var h = document.createElement('h3'); h.textContent = l.titolo || '';
+    var p = document.createElement('p'); p.textContent = l.descrizione || '';
+    var a = document.createElement('a');
     a.className = 'open'; a.href = l.link || '#';
     a.target = '_blank'; a.rel = 'noopener';
-    a.textContent = 'Apri →';
+    a.textContent = 'Apri';
 
     body.appendChild(h); body.appendChild(p); body.appendChild(a);
     c.appendChild(thumb); c.appendChild(body);

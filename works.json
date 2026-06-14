@@ -1,32 +1,32 @@
 {
-  "_istruzioni": "QUESTO è l'unico file che modifichi per aggiornare il portfolio. Per ogni lavoro copia un blocco { ... } dentro 'lavori', metti la virgola tra un blocco e l'altro, e cambia i 5 valori: titolo, categoria, descrizione, link, thumb. categoria = una tra Video / Relazioni / Progetti / AI (puoi inventarne altre, i filtri si creano da soli). link = indirizzo del file su Google Drive o YouTube (impostato 'chiunque con il link'). thumb = indirizzo di un'immagine di anteprima, oppure lascia \"\" per il riquadro verde. ATTENZIONE: non mettere la virgola dopo l'ultimo blocco. Salva e ricarica solo questo file su GitHub: la pagina si aggiorna da sola.",
+  "_istruzioni": "QUESTO è l'unico file che modifichi per aggiornare il portfolio. Per ogni lavoro copia un blocco { ... } dentro 'lavori', metti la virgola tra un blocco e l'altro, e cambia i 5 valori: titolo, categoria, descrizione, link, thumb. categoria = una tra Video / Relazioni / Progetti / AI (puoi inventarne altre, i filtri si creano da soli). link = indirizzo del file su Google Drive o YouTube (impostato 'chiunque con il link'). thumb = indirizzo di un'immagine di anteprima, oppure lascia vuoto per il riquadro verde. ATTENZIONE: non mettere la virgola dopo l'ultimo blocco. Salva e ricarica solo questo file su GitHub: la pagina si aggiorna da sola.",
 
   "lavori": [
     {
-      "titolo": "Automazione monitoraggio offerte",
-      "categoria": "AI",
-      "descrizione": "Workflow n8n che monitora le offerte di lavoro e mi avvisa su WhatsApp. Esempio di automazione del mio workflow con AI.",
-      "link": "https://drive.google.com/INSERISCI-LINK",
-      "thumb": ""
-    },
-    {
-      "titolo": "Estratto relazione tecnica — impianti galleria",
-      "categoria": "Relazioni",
-      "descrizione": "Estratto di una relazione di progetto per impianti elettrici e illuminotecnici di galleria. Dati sensibili rimossi.",
-      "link": "https://drive.google.com/INSERISCI-LINK",
-      "thumb": ""
-    },
-    {
-      "titolo": "Progetto MEP reparto ospedaliero",
+      "titolo": "Impianti elettrici e illuminotecnici di galleria",
       "categoria": "Progetti",
-      "descrizione": "Tavole e schemi di un progetto di impianti meccanici e gas medicali. Anteprima a bassa risoluzione.",
+      "descrizione": "Estratto di progetto per impianti elettrici, illuminazione e sicurezza di una galleria stradale. Committente e dati sensibili anonimizzati.",
       "link": "https://drive.google.com/INSERISCI-LINK",
       "thumb": ""
     },
     {
-      "titolo": "Video — sistema realizzato in cantiere",
-      "categoria": "Video",
-      "descrizione": "Breve video di un impianto realizzato e messo in funzione. Mostra il risultato pratico del progetto.",
+      "titolo": "Impianti meccanici e gas medicali - reparto ospedaliero",
+      "categoria": "Progetti",
+      "descrizione": "Tavole e schemi di climatizzazione, idrico-sanitario e gas medicali per un reparto. Anteprime a bassa risoluzione.",
+      "link": "https://drive.google.com/INSERISCI-LINK",
+      "thumb": ""
+    },
+    {
+      "titolo": "Relazione tecnica impianti - stazione ferroviaria",
+      "categoria": "Relazioni",
+      "descrizione": "Estratto di relazione di calcolo e descrittiva per gli impianti di una stazione ferroviaria. Parti riservate rimosse.",
+      "link": "https://drive.google.com/INSERISCI-LINK",
+      "thumb": ""
+    },
+    {
+      "titolo": "Automazione del workflow di progettazione con AI",
+      "categoria": "AI",
+      "descrizione": "Workflow n8n e Claude che automatizza le attività ripetitive a supporto della progettazione. Esempio di come uso l'AI per accelerare il lavoro.",
       "link": "https://drive.google.com/INSERISCI-LINK",
       "thumb": ""
     }
